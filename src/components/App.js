@@ -23,9 +23,9 @@ const App = () => {
     setSelectedVideo(response.data.items[0]);
   };
 
-  const onVideoSelect = (video) => {
-    setSelectedVideo(video);
-  };
+  // We can use a shortcut, instead of (video) => setSelectedVideo(video),
+  // we can directly assign the setSelectedVideo to the onVideoSelect event
+  // and it works in a similar way
 
   return (
     <div className="ui container">
@@ -36,7 +36,7 @@ const App = () => {
             <VideoDetail video={selectedVideo} />
           </div>
           <div className="five wide column">
-            <VideoList onVideoSelect={onVideoSelect} videos={videos} />
+            <VideoList onVideoSelect={setSelectedVideo} videos={videos} />
           </div>
         </div>
       </div>
